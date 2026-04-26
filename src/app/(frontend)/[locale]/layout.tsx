@@ -4,7 +4,7 @@ import { getMessages, setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { DM_Serif_Display, Inter } from 'next/font/google'
+import { DM_Serif_Display, Nunito } from 'next/font/google'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 
 const dmSerif = DM_Serif_Display({
@@ -15,9 +15,9 @@ const dmSerif = DM_Serif_Display({
   display: 'swap',
 })
 
-const inter = Inter({
+const nunito = Nunito({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-nunito',
   display: 'swap',
 })
 
@@ -37,7 +37,7 @@ export default async function LocaleLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`${dmSerif.variable} ${inter.variable}`}>
+    <html lang={locale} className={`${dmSerif.variable} ${nunito.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <SmoothScrollProvider>
