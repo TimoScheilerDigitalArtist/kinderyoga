@@ -3,10 +3,40 @@
     "language": "English"
   },
   "navigation": {
-    "home": "Home"
+    "home": "Home",
+    "about": "About",
+    "groups": "Classes",
+    "contact": "Contact"
   },
   "metadata": {
-    "title": "Kinderyoga",
-    "description": "Kinderyoga – Yoga for Kids"
+    "title": "Children's Yoga Eggstätt – Martina Partsch",
+    "description": "Children's yoga in Eggstätt with Martina Partsch. Playful yoga classes for children aged 3–16 in small groups."
+  },
+  "hero": {
+    "scrollDown": "Scroll down"
+  },
+  "about": {
+    "heading": "About Martina",
+    "imageAlt": "Martina Partsch, children's yoga teacher"
+  },
+  "groups": {
+    "heading": "Yoga Classes",
+    "subheading": "The right group for every age"
+  },
+  "details": {
+    "heading": "How It Works"
+  },
+  "contact": {
+    "heading": "Ready to take the first step?",
+    "phone": "Phone",
+    "address": "Address",
+    "email": "Email",
+    "callNow": "Call now"
+  },
+  "footer": {
+    "impressum": "Legal Notice",
+    "datenschutz": "Privacy Policy",
+    "copyright": "© 2024 Martina Partsch. All rights reserved.",
+    "switchLanguage": "Zu Deutsch wechseln"
   }
 }

@@ -3,10 +3,40 @@
     "language": "Deutsch"
   },
   "navigation": {
-    "home": "Startseite"
+    "home": "Startseite",
+    "about": "Über mich",
+    "groups": "Angebote",
+    "contact": "Kontakt"
   },
   "metadata": {
-    "title": "Kinderyoga",
-    "description": "Kinderyoga – Yoga für Kinder"
+    "title": "Kinderyoga Eggstätt – Martina Partsch",
+    "description": "Kinderyoga in Eggstätt mit Martina Partsch. Spielerische Yogakurse für Kinder von 3–16 Jahren in kleinen Gruppen."
+  },
+  "hero": {
+    "scrollDown": "Nach unten scrollen"
+  },
+  "about": {
+    "heading": "Über Martina",
+    "imageAlt": "Martina Partsch, Kinderyoga-Lehrerin"
+  },
+  "groups": {
+    "heading": "Die Yoga-Gruppen",
+    "subheading": "Für jedes Alter die passende Gruppe"
+  },
+  "details": {
+    "heading": "So läuft's ab"
+  },
+  "contact": {
+    "heading": "Bereit für den ersten Schritt?",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "email": "E-Mail",
+    "callNow": "Jetzt anrufen"
+  },
+  "footer": {
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz",
+    "copyright": "© 2024 Martina Partsch. Alle Rechte vorbehalten.",
+    "switchLanguage": "Switch to English"
   }
 }
