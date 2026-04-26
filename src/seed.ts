@@ -168,6 +168,7 @@ export async function seed(payload: Payload): Promise<void> {
         ctaText: 'Jetzt Platz sichern',
         phone: '+49 1708764438',
         address: 'Am Lohfeld 5, 83125 Eggstätt',
+        email: 'info@kinderyoga.fit',
       },
       seo: {
         metaTitle: 'Kinderyoga Eggstätt – Martina Partsch',
@@ -214,6 +215,7 @@ export async function seed(payload: Payload): Promise<void> {
         ctaText: 'Reserve a Spot',
         phone: '+49 1708764438',
         address: 'Am Lohfeld 5, 83125 Eggstätt',
+        email: 'info@kinderyoga.fit',
       },
       seo: {
         metaTitle: "Children's Yoga Eggstätt – Martina Partsch",

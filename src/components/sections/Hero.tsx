@@ -135,7 +135,7 @@ export function HeroSection({ headline, subtitle }: HeroSectionProps) {
         {/* Headline – each line wipes up independently */}
         <h1 className="font-heading leading-[0.88] tracking-tight mb-6">
           {lines.map((line, i) => (
-            <div key={i} className="overflow-hidden">
+            <div key={i} className="overflow-hidden pb-2">
               <motion.span
                 className={`block text-[clamp(3.2rem,9vw,7.5rem)] text-ky-charcoal ${i === lines.length - 1 ? 'italic' : ''}`}
                 initial={reduced ? {} : { y: 110, opacity: 0 }}
