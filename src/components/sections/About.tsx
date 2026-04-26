@@ -10,65 +10,6 @@ import type { AboutData, LexicalContent, MediaData } from '@/types/kinderyoga'
 
 const EXPO = [0.22, 1, 0.36, 1] as const
 
-// Yoga pose SVG – used as placeholder until Martina uploads her photo
-function YogaPoseSVG() {
-  return (
-    <svg
-      viewBox="0 0 240 320"
-      fill="none"
-      className="w-full h-full"
-      aria-hidden="true"
-    >
-      {/* Body */}
-      <circle cx="120" cy="62" r="28" fill="#C4B5E0" opacity="0.8" />
-      {/* Torso */}
-      <path
-        d="M100 90 C100 90 90 140 95 170 L145 170 C150 140 140 90 140 90 Z"
-        fill="#C4B5E0"
-        opacity="0.6"
-      />
-      {/* Left arm (warrior pose) */}
-      <path
-        d="M100 110 C80 120 55 115 40 108"
-        stroke="#A8C5A0"
-        strokeWidth="10"
-        strokeLinecap="round"
-        fill="none"
-      />
-      {/* Right arm */}
-      <path
-        d="M140 110 C160 120 185 115 200 108"
-        stroke="#A8C5A0"
-        strokeWidth="10"
-        strokeLinecap="round"
-        fill="none"
-      />
-      {/* Left leg */}
-      <path
-        d="M100 170 C90 200 75 230 65 260"
-        stroke="#C4B5E0"
-        strokeWidth="12"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.7"
-      />
-      {/* Right leg (bent) */}
-      <path
-        d="M140 170 C150 200 160 220 175 240"
-        stroke="#C4B5E0"
-        strokeWidth="12"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.7"
-      />
-      {/* Decorative circles */}
-      <circle cx="40" cy="80" r="6" fill="#F5C7A9" opacity="0.6" />
-      <circle cx="200" cy="70" r="4" fill="#A8C5A0" opacity="0.5" />
-      <circle cx="170" cy="280" r="5" fill="#F5C7A9" opacity="0.4" />
-    </svg>
-  )
-}
-
 interface AboutSectionProps {
   image?: AboutData['image']
   text?: LexicalContent | null
@@ -79,7 +20,7 @@ export function AboutSection({ image, text }: AboutSectionProps) {
   const reduced = useReducedMotion()
 
   const mediaImage = image && typeof image !== 'string' ? (image as MediaData) : null
-  const hasImage = mediaImage?.url != null
+  const hasPayloadImage = mediaImage?.url != null
 
   return (
     <section className="relative py-28 md:py-36 bg-ky-cream overflow-hidden" id="about">
@@ -92,6 +33,20 @@ export function AboutSection({ image, text }: AboutSectionProps) {
           <path
             fill="#F5C7A9"
             d="M49.2,-61.4C63.3,-54.4,74,-39.9,77.5,-24.1C81,-8.3,77.3,8.8,70.4,23.6C63.5,38.4,53.5,50.9,40.9,59.4C28.3,67.9,13.2,72.4,-1.4,74C-16,75.6,-32,74.3,-45.2,67.2C-58.4,60.1,-68.8,47.2,-72.4,32.7C-76,18.2,-72.8,2.1,-68.4,-12.9C-64,-27.9,-58.4,-41.8,-48.4,-49.4C-38.4,-57,-19.2,-58.3,-1.5,-56.6C16.2,-54.9,35.1,-68.4,49.2,-61.4Z"
+            transform="translate(100 100)"
+          />
+        </svg>
+      </div>
+
+      {/* Small sage blob bottom left */}
+      <div
+        className="absolute -bottom-20 -left-20 w-72 h-72 opacity-10 pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#A8C5A0"
+            d="M39.8,-52.6C51.8,-47.3,62,-36.2,67.2,-22.9C72.4,-9.6,72.6,5.9,68.3,20C64,34.1,55.2,46.8,43.6,54.5C32,62.2,17.5,64.9,2.4,62.1C-12.7,59.3,-28.4,51.1,-40.1,40.1C-51.8,29.1,-59.5,15.3,-60.1,1.2C-60.7,-12.9,-54.2,-27.2,-44.7,-37.5C-35.2,-47.8,-22.7,-54.1,-9.4,-56.9C3.9,-59.7,27.8,-57.9,39.8,-52.6Z"
             transform="translate(100 100)"
           />
         </svg>
@@ -110,7 +65,7 @@ export function AboutSection({ image, text }: AboutSectionProps) {
                 className="relative rounded-3xl overflow-hidden aspect-4/5 shadow-2xl shadow-ky-lavender/15"
                 offset={45}
               >
-                {hasImage ? (
+                {hasPayloadImage ? (
                   <Image
                     src={mediaImage.url!}
                     alt={mediaImage.alt || t('imageAlt')}
@@ -119,9 +74,14 @@ export function AboutSection({ image, text }: AboutSectionProps) {
                     className="w-full h-full object-cover scale-110"
                   />
                 ) : (
-                  <div className="w-full h-full bg-linear-to-br from-ky-lavender/20 via-ky-peach/15 to-ky-sage/10 flex items-center justify-center">
-                    <YogaPoseSVG />
-                  </div>
+                  <Image
+                    src="/martina.jpg"
+                    alt={t('imageAlt')}
+                    width={593}
+                    height={592}
+                    className="w-full h-full object-cover object-top scale-110"
+                    priority
+                  />
                 )}
               </ParallaxImage>
 
@@ -148,10 +108,10 @@ export function AboutSection({ image, text }: AboutSectionProps) {
             </ScrollReveal>
 
             {/* Heading */}
-            <div className="overflow-hidden">
+            <div className="overflow-hidden pb-3">
               <motion.h2
-                className="font-heading text-5xl md:text-6xl text-ky-charcoal leading-[0.95]"
-                initial={reduced ? {} : { y: 80, opacity: 0 }}
+                className="font-heading text-5xl md:text-6xl text-ky-charcoal leading-none"
+                initial={reduced ? {} : { y: 90, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.85, ease: EXPO, delay: 0.15 }}
@@ -167,14 +127,24 @@ export function AboutSection({ image, text }: AboutSectionProps) {
               {text ? (
                 <SerializeLexical
                   content={text}
-                  className="text-ky-charcoal/65 text-lg leading-relaxed space-y-3"
+                  className="text-ky-charcoal/65 text-lg leading-relaxed space-y-4"
                 />
               ) : (
-                <p className="text-ky-charcoal/65 text-lg leading-relaxed">
-                  Ich bin Martina – Yogalehrerin aus Leidenschaft. Mein Herz schlägt dafür,
-                  Kindern einen Raum zu schenken, in dem sie ganz bei sich ankommen dürfen. In
-                  kleinen Gruppen üben wir gemeinsam, wie Stille sich gut anfühlen kann.
-                </p>
+                <div className="text-ky-charcoal/65 text-lg leading-relaxed space-y-4">
+                  <p>
+                    Yoga begleitet Martina seit ihrem neunten Lebensjahr – von den ersten
+                    neugierigen Atemübungen bis zur Ausbildung zur Yogalehrerin. In ihrer
+                    täglichen Arbeit mit Kindern hat sie gespürt, wie groß der Bedarf an
+                    körperlichem Ausgleich wirklich ist: Kinder, die im Schulalltag unter
+                    Druck stehen, die kaum noch zur Ruhe kommen, deren Körper nach Bewegung
+                    sucht und deren Geist nach Stille hungert.
+                  </p>
+                  <p>
+                    Ihr Anliegen ist es, jedem Kind einen Raum zu schenken, in dem Körper,
+                    Geist und Seele wieder in Einklang kommen dürfen – ohne Leistungsdruck,
+                    ohne Erwartungen. Nur Yoga, Atem und die Freude am Bewegen.
+                  </p>
+                </div>
               )}
             </ScrollReveal>
 

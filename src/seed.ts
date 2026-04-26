@@ -1,6 +1,6 @@
 import type { Payload } from 'payload'
 
-function rt(text: string) {
+function rt(...paragraphs: string[]) {
   return {
     root: {
       type: 'root',
@@ -8,28 +8,26 @@ function rt(text: string) {
       indent: 0,
       version: 1,
       direction: 'ltr' as const,
-      children: [
-        {
-          type: 'paragraph',
-          format: '',
-          indent: 0,
-          version: 1,
-          direction: 'ltr' as const,
-          textFormat: 0,
-          textStyle: '',
-          children: [
-            {
-              type: 'text',
-              format: 0,
-              style: '',
-              mode: 'normal' as const,
-              detail: 0,
-              version: 1,
-              text,
-            },
-          ],
-        },
-      ],
+      children: paragraphs.map((text) => ({
+        type: 'paragraph',
+        format: '',
+        indent: 0,
+        version: 1,
+        direction: 'ltr' as const,
+        textFormat: 0,
+        textStyle: '',
+        children: [
+          {
+            type: 'text',
+            format: 0,
+            style: '',
+            mode: 'normal' as const,
+            detail: 0,
+            version: 1,
+            text,
+          },
+        ],
+      })),
     },
   }
 }
@@ -143,7 +141,8 @@ export async function seed(payload: Payload): Promise<void> {
       },
       about: {
         text: rt(
-          'Ich bin Martina – Yogalehrerin aus Leidenschaft. Mein Herz schlägt dafür, Kindern einen Raum zu schenken, in dem sie ganz bei sich ankommen dürfen. In kleinen Gruppen üben wir gemeinsam, wie Stille sich gut anfühlen kann.',
+          'Yoga begleitet Martina seit ihrem neunten Lebensjahr – von den ersten neugierigen Atemübungen bis zur Ausbildung zur Yogalehrerin. In ihrer täglichen Arbeit mit Kindern hat sie gespürt, wie groß der Bedarf an körperlichem Ausgleich wirklich ist: Kinder, die im Schulalltag unter Druck stehen, die kaum noch zur Ruhe kommen, deren Körper nach Bewegung sucht und deren Geist nach Stille hungert.',
+          'Ihr Anliegen ist es, jedem Kind einen Raum zu schenken, in dem Körper, Geist und Seele wieder in Einklang kommen dürfen – ohne Leistungsdruck, ohne Erwartungen. Nur Yoga, Atem und die Freude am Bewegen.',
         ),
       },
       details: [

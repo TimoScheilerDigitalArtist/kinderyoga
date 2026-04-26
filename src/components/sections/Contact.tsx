@@ -100,9 +100,9 @@ export function ContactSection({ contact }: ContactSectionProps) {
         </ScrollReveal>
 
         {/* Headline */}
-        <div className="overflow-hidden text-center mb-14">
+        <div className="overflow-hidden text-center mb-11 pb-3">
           <motion.h2
-            className="font-heading text-5xl md:text-7xl text-ky-charcoal leading-tight"
+            className="font-heading text-5xl md:text-7xl text-ky-charcoal leading-none"
             initial={reduced ? {} : { y: 80, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -149,7 +149,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
       </div>
 
       {/* Wave into Footer */}
-      <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
+      <div className="absolute bottom-0 left-0 right-0 translate-y-px" aria-hidden="true">
         <svg
           viewBox="0 0 1440 60"
           xmlns="http://www.w3.org/2000/svg"

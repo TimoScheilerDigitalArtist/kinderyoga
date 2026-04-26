@@ -133,12 +133,12 @@ export function HeroSection({ headline, subtitle }: HeroSectionProps) {
         </motion.div>
 
         {/* Headline – each line wipes up independently */}
-        <h1 className="font-heading leading-[0.88] tracking-tight mb-6">
+        <h1 className="font-heading leading-none tracking-tight mb-6">
           {lines.map((line, i) => (
-            <div key={i} className="overflow-hidden pb-2">
+            <div key={i} className="overflow-hidden pb-3 -mb-1">
               <motion.span
                 className={`block text-[clamp(3.2rem,9vw,7.5rem)] text-ky-charcoal ${i === lines.length - 1 ? 'italic' : ''}`}
-                initial={reduced ? {} : { y: 110, opacity: 0 }}
+                initial={reduced ? {} : { y: 130, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.9, ease: EXPO, delay: 0.08 + i * 0.13 }}
               >
@@ -210,7 +210,7 @@ export function HeroSection({ headline, subtitle }: HeroSectionProps) {
       </motion.div>
 
       {/* ── Wave divider into About ───────────────────────────── */}
-      <div className="absolute bottom-0 left-0 right-0 z-20" aria-hidden="true">
+      <div className="absolute bottom-0 left-0 right-0 z-20 translate-y-px" aria-hidden="true">
         <svg
           viewBox="0 0 1440 96"
           xmlns="http://www.w3.org/2000/svg"

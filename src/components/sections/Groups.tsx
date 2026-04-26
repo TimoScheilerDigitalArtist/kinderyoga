@@ -151,7 +151,7 @@ export function GroupsSection({ groups }: GroupsSectionProps) {
       </div>
 
       {/* Wave into Details */}
-      <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
+      <div className="absolute bottom-0 left-0 right-0 translate-y-px" aria-hidden="true">
         <svg
           viewBox="0 0 1440 60"
           xmlns="http://www.w3.org/2000/svg"
